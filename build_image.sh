@@ -55,9 +55,9 @@ function reset_vars {
 	#Hostname:
 	FQDN="arm"
 
-	USER_LOGIN="ubuntu"
-	USER_PASS="temppwd"
-	USER_NAME="Demo User"
+	USER_LOGIN="rov"
+	USER_PASS="OpenROV"
+	USER_NAME="OpenROV User"
 
 	SERIAL="ttyO2"
 
@@ -358,11 +358,11 @@ fi
 dl_rootstock
 
 ARCH=armel
-oneiric_release
+#oneiric_release
 
 ARCH=armhf
 precise_release
-quantal_release
-wheezy_release
+#quantal_release
+#wheezy_release
 
 
