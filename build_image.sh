@@ -57,7 +57,7 @@ function reset_vars {
 	fi
 
 	#Hostname:
-	FQDN="arm"
+	FQDN="OpenROV"
 
 	USER_LOGIN="rov"
 	USER_PASS="OpenROV"
