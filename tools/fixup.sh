@@ -100,7 +100,23 @@ mv /etc/apt/sources.bak /etc/apt/sources.list
 apt-get update
 apt-get clean
 
+####################################
+# additions
+ADDITIONS=/tmp/additions
+if [ -d $ADDITIONS ]; then
+	for item in $ADDITIONS/* ; do
+		if [ -d $ADDITIONS/$item ]; then
+			if [ -f $ADDITIONS/$item/install.sh ]; then
+				sh $ADDITINS/$ITEM/install.sh
+			fi
+		fi
+	done
+fi
+####################################
+
 rm -f /tmp/*.deb || true
 rm -rf /usr/src/linux-headers* || true
 rm -f /rootstock-user-script || true
+rm -rf /tmp/additions || true
+
 

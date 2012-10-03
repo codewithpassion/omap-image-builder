@@ -36,8 +36,7 @@ MINIMAL="-minimal"
 
 DIR=$PWD
 
-if [ -z "$ADDITIONS_FOLDER" ]
-then 
+if [ -z "$ADDITIONS_FOLDER" ]; then 
 	ADDITIONS_FOLDER="$DIR/additions/"
 fi
 
