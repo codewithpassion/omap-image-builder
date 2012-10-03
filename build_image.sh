@@ -36,6 +36,10 @@ MINIMAL="-minimal"
 
 DIR=$PWD
 
+ROOTSTOCKGIT=git://github.com/codewithpassion/project-rootstock.git
+#ROOTSTOCKGIT=git://github.com/RobertCNelson/project-rootstock.git
+ROOTSTOCKBRANCH=master
+
 function reset_vars {
 	unset DIST
 	unset PRIMARY_KERNEL
@@ -68,8 +72,9 @@ function dl_rootstock {
 	if [ ! -f ${DIR}/git/project-rootstock/.git/config ] ; then
 		mkdir -p ${DIR}/git/
 		cd ${DIR}/git/
-		git clone git://github.com/RobertCNelson/project-rootstock.git
+		git clone $ROOTSTOCKGIT
 		cd ${DIR}/
+		git checkout $ROOTSTOCKBRANCH
 	fi
 
 	cd ${DIR}/git/project-rootstock
