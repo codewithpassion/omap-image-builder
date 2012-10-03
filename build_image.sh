@@ -36,6 +36,11 @@ MINIMAL="-minimal"
 
 DIR=$PWD
 
+if [ -z "$ADDITIONS_FOLDER" ]
+then 
+	ADDITIONS_FOLDER="$DIR/additions/"
+fi
+
 ROOTSTOCKGIT=git://github.com/codewithpassion/project-rootstock.git
 #ROOTSTOCKGIT=git://github.com/RobertCNelson/project-rootstock.git
 ROOTSTOCKBRANCH=master
@@ -103,7 +108,7 @@ echo "sudo ${DIR}/git/project-rootstock/rootstock  --imagesize ${IMAGESIZE} --fq
 --login ${USER_LOGIN} --password ${USER_PASS} --fullname \"${USER_NAME}\" \
 --seed ${MINIMAL_APT}${EXTRA} ${MIRROR} --components \"${COMPONENTS}\" \
 --dist ${DIST} --serial ${SERIAL} --script ${DIR}/tools/${FIXUPSCRIPT} \
-${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} "
+${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-folder=$ADDITIONS_FOLDER "
 echo "-------------------------"
 echo ""
 
@@ -111,7 +116,7 @@ sudo ${DIR}/git/project-rootstock/rootstock  --imagesize ${IMAGESIZE} --fqdn ${F
 --login ${USER_LOGIN} --password ${USER_PASS} --fullname "${USER_NAME}" \
 --seed ${MINIMAL_APT}${EXTRA} ${MIRROR} --components "${COMPONENTS}" \
 --dist ${DIST} --serial ${SERIAL} --script ${DIR}/tools/${FIXUPSCRIPT} \
-${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH}
+${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-folder=$ADDITIONS_FOLDER
 }
 
 function compression {
