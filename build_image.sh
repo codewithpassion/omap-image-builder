@@ -35,6 +35,14 @@ MINIMAL="-minimal"
 
 DIR=$PWD
 
+if [ -z "$ADDITIONS_FOLDER" ]; then 
+	ADDITIONS_FOLDER="$DIR/additions/"
+fi
+
+ROOTSTOCKGIT=git://github.com/codewithpassion/project-rootstock.git
+#ROOTSTOCKGIT=git://github.com/RobertCNelson/project-rootstock.git
+ROOTSTOCKBRANCH=master
+
 function reset_vars {
 	unset DIST
 	unset PRIMARY_KERNEL
@@ -52,11 +60,11 @@ function reset_vars {
 	fi
 
 	#Hostname:
-	FQDN="arm"
+	FQDN="OpenROV"
 
-	USER_LOGIN="ubuntu"
-	USER_PASS="temppwd"
-	USER_NAME="Demo User"
+	USER_LOGIN="rov"
+	USER_PASS="OpenROV"
+	USER_NAME="OpenROV User"
 
 	SERIAL="ttyO2"
 
@@ -67,8 +75,9 @@ function dl_rootstock {
 	if [ ! -f ${DIR}/git/project-rootstock/.git/config ] ; then
 		mkdir -p ${DIR}/git/
 		cd ${DIR}/git/
-		git clone git://github.com/RobertCNelson/project-rootstock.git
+		git clone $ROOTSTOCKGIT
 		cd ${DIR}/
+		git checkout $ROOTSTOCKBRANCH
 	fi
 
 	cd ${DIR}/git/project-rootstock
@@ -99,7 +108,7 @@ echo "sudo ${DIR}/git/project-rootstock/rootstock  --imagesize ${IMAGESIZE} --fq
 --login ${USER_LOGIN} --password ${USER_PASS} --fullname \"${USER_NAME}\" \
 --seed ${MINIMAL_APT}${EXTRA} ${MIRROR} --components \"${COMPONENTS}\" \
 --dist ${DIST} --serial ${SERIAL} --script ${DIR}/tools/${FIXUPSCRIPT} \
-${PRIMARY_KERNEL} ${SECONDARY_KERNEL} ${THIRD_KERNEL} --apt-upgrade --arch=${ARCH} "
+${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-folder=$ADDITIONS_FOLDER "
 echo "-------------------------"
 echo ""
 
@@ -107,7 +116,7 @@ sudo ${DIR}/git/project-rootstock/rootstock  --imagesize ${IMAGESIZE} --fqdn ${F
 --login ${USER_LOGIN} --password ${USER_PASS} --fullname "${USER_NAME}" \
 --seed ${MINIMAL_APT}${EXTRA} ${MIRROR} --components "${COMPONENTS}" \
 --dist ${DIST} --serial ${SERIAL} --script ${DIR}/tools/${FIXUPSCRIPT} \
-${PRIMARY_KERNEL} ${SECONDARY_KERNEL} ${THIRD_KERNEL} --apt-upgrade --arch=${ARCH}
+${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-folder=$ADDITIONS_FOLDER
 }
 
 function compression {
@@ -367,9 +376,12 @@ fi
 
 dl_rootstock
 
+ARCH=armel
+#oneiric_release
+
 ARCH=armhf
 precise_release
-quantal_release
-wheezy_release
+#quantal_release
+#wheezy_release
 
 
