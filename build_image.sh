@@ -27,7 +27,7 @@ TIME=$(date +%Y-%m-%d)
 unset USE_OEM
 
 ONEIRIC_CURRENT="ubuntu-11.10"
-PRECISE_CURRENT="ubuntu-12.04"
+PRECISE_CURRENT="OpenROV-ubuntu-12.04"
 QUANTAL_RELEASE="ubuntu-12.10"
 SQUEEZE_CURRENT="debian-6.0.5"
 WHEEZY_CURRENT="debian-wheezy"
