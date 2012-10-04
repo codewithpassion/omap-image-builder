@@ -111,11 +111,11 @@ ${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-f
 echo "-------------------------"
 echo ""
 
-sudo ${DIR}/git/project-rootstock/rootstock  --imagesize ${IMAGESIZE} --fqdn ${FQDN} \
---login ${USER_LOGIN} --password ${USER_PASS} --fullname "${USER_NAME}" \
---seed ${MINIMAL_APT}${EXTRA} ${MIRROR} --components "${COMPONENTS}" \
---dist ${DIST} --serial ${SERIAL} --script ${DIR}/tools/${FIXUPSCRIPT} \
-${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-folder=$ADDITIONS_FOLDER
+#sudo ${DIR}/git/project-rootstock/rootstock  --imagesize ${IMAGESIZE} --fqdn ${FQDN} \
+#--login ${USER_LOGIN} --password ${USER_PASS} --fullname "${USER_NAME}" \
+#--seed ${MINIMAL_APT}${EXTRA} ${MIRROR} --components "${COMPONENTS}" \
+#--dist ${DIST} --serial ${SERIAL} --script ${DIR}/tools/${FIXUPSCRIPT} \
+#${PRIMARY_KERNEL} ${SECONDARY_KERNEL} --apt-upgrade --arch=${ARCH} --additions-folder=$ADDITIONS_FOLDER
 }
 
 function compression {
