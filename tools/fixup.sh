@@ -102,16 +102,22 @@ apt-get clean
 
 ####################################
 # additions
+echo "Setting up additions:"
 ADDITIONS=/tmp/additions
 if [ -d $ADDITIONS ]; then
-	for item in $ADDITIONS/* ; do
-		if [ -d $ADDITIONS/$item ]; then
-			if [ -f $ADDITIONS/$item/install.sh ]; then
-				sh $ADDITINS/$ITEM/install.sh
-			fi
-		fi
-	done
+        echo "Found additions"
+        for item in $ADDITIONS/* ; do
+                echo "checking $item"
+                if [ -d $item ]; then
+                        echo "Found folder: $item"
+                        if [ -f $item/install.sh ]; then
+                                echo "Executing: $ADDITIONS/$item/install.sh"
+                                sh $item/install.sh
+                        fi
+                fi
+        done
 fi
+
 ####################################
 
 rm -f /tmp/*.deb || true
