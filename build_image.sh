@@ -260,7 +260,7 @@ function precise_release {
 	reset_vars
 	DIST=precise
 	select_rcn-ee-net_kernel
-	EXTRA=",linux-firmware,devmem2,python-software-properties"
+	EXTRA=",linux-firmware,devmem2,python-software-properties,gcc,g++,make"
 	FIXUPSCRIPT="fixup.sh"
 	MIRROR=$MIRROR_UBU
 	COMPONENTS="${UBU_COMPONENTS}"
