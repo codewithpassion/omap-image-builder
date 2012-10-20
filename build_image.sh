@@ -39,7 +39,7 @@ if [ -z "$ADDITIONS_FOLDER" ]; then
 	ADDITIONS_FOLDER="$DIR/additions/"
 fi
 
-ROOTSTOCKGIT=git://github.com/codewithpassion/project-rootstock.git
+ROOTSTOCKGIT=https://github.com/codewithpassion/project-rootstock.git
 #ROOTSTOCKGIT=git://github.com/RobertCNelson/project-rootstock.git
 ROOTSTOCKBRANCH=master
 
